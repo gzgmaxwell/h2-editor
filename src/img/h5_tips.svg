@@ -1,0 +1,139 @@
+
+<svg width="688px" height="320px" viewBox="0 0 688 320" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <rect id="path-1" x="0" y="0" width="688" height="320" rx="4"></rect>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="98.7125319%" id="linearGradient-3">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.05" offset="31.3356983%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.1" offset="48.7344547%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.204088938" offset="67.1516263%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.3" offset="89.2159598%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.35" offset="96.1535395%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.4" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-4" x="0" y="0" width="688" height="60"></rect>
+        <filter x="-1.7%" y="-10.0%" width="103.5%" height="140.0%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.16 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="编辑器" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="轻设计作品下载NEW单图" transform="translate(-481.000000, -120.000000)">
+            <g id="Group-10" transform="translate(453.000000, 56.000000)">
+                <g id="image" transform="translate(28.000000, 64.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Rectangle-2" fill="#FFFFFF" xlink:href="#path-1"></use>
+                    <g id="Repeat-Group" mask="url(#mask-2)">
+                        <g transform="translate(204.000000, 88.000000)" id="Group_17410">
+                            <g>
+                                <g id="box" fill="#ECEEF0">
+                                    <rect id="Rectangle-13" x="0" y="0" width="136" height="136"></rect>
+                                </g>
+                                <rect id="Rectangle" fill="url(#linearGradient-3)" x="0" y="36" width="136" height="100"></rect>
+                                <g id="box" opacity="0" transform="translate(100.000000, 100.000000)" fill="#ECEEF0">
+                                    <rect id="Rectangle-13" x="0" y="0" width="36" height="36"></rect>
+                                </g>
+                                <path d="M109.082,118.151 L109,117.9 L109,117.489 L109.082,117 C110.710422,113.481219 114.167245,111.166124 118.041,111 C121.914755,111.166124 125.371578,113.481219 127,117 L127,117.74 C127,117.822 127,117.904 126.918,117.904 C126.918,117.986 126.918,117.986 126.836,118.068 C126.611444,118.561989 126.335952,119.031196 126.014,119.468 C124.758586,121.377538 122.910451,122.821614 120.754,123.578 C119.910692,123.98876 118.979438,124.186206 118.042,124.153 C114.168245,123.986876 110.711422,121.671781 109.083,118.153 L109.082,118.151 Z M110.644,117.576 C111.974637,120.491269 114.841172,122.401776 118.044,122.508 C118.828049,122.498383 119.605144,122.35952 120.344,122.097 C122.128749,121.486339 123.66067,120.301175 124.7,118.727 L124.7,118.645 C124.948772,118.307999 125.168875,117.95075 125.358,117.577 C124.000495,114.684741 121.14993,112.784878 117.958,112.645 C114.795736,112.811288 111.982879,114.707804 110.643,117.577 L110.644,117.576 Z M114.754,117.576 C114.754,115.760088 116.226088,114.288 118.042,114.288 C119.857912,114.288 121.33,115.760088 121.33,117.576 C121.33,119.391912 119.857912,120.864 118.042,120.864 C116.228042,120.857963 114.759037,119.388958 114.753,117.575 L114.754,117.576 Z M116.398,117.576 C116.398,118.483956 117.134044,119.22 118.042,119.22 C118.949956,119.22 119.686,118.483956 119.686,117.576 C119.686,116.668044 118.949956,115.932 118.042,115.932 C117.136353,115.935839 116.403287,116.669351 116.4,117.575 L116.398,117.576 Z" id="eye-l" fill="#FFFFFF" fill-rule="nonzero"></path>
+                            </g>
+                            <g transform="translate(148.000000, 0.000000)">
+                                <g id="box" fill="#ECEEF0">
+                                    <rect id="Rectangle-13" x="0" y="0" width="136" height="136"></rect>
+                                </g>
+                                <rect id="Rectangle" fill="url(#linearGradient-3)" x="0" y="36" width="136" height="100"></rect>
+                                <g id="box" opacity="0" transform="translate(100.000000, 100.000000)" fill="#ECEEF0">
+                                    <rect id="Rectangle-13" x="0" y="0" width="36" height="36"></rect>
+                                </g>
+                                <path d="M109.082,118.151 L109,117.9 L109,117.489 L109.082,117 C110.710422,113.481219 114.167245,111.166124 118.041,111 C121.914755,111.166124 125.371578,113.481219 127,117 L127,117.74 C127,117.822 127,117.904 126.918,117.904 C126.918,117.986 126.918,117.986 126.836,118.068 C126.611444,118.561989 126.335952,119.031196 126.014,119.468 C124.758586,121.377538 122.910451,122.821614 120.754,123.578 C119.910692,123.98876 118.979438,124.186206 118.042,124.153 C114.168245,123.986876 110.711422,121.671781 109.083,118.153 L109.082,118.151 Z M110.644,117.576 C111.974637,120.491269 114.841172,122.401776 118.044,122.508 C118.828049,122.498383 119.605144,122.35952 120.344,122.097 C122.128749,121.486339 123.66067,120.301175 124.7,118.727 L124.7,118.645 C124.948772,118.307999 125.168875,117.95075 125.358,117.577 C124.000495,114.684741 121.14993,112.784878 117.958,112.645 C114.795736,112.811288 111.982879,114.707804 110.643,117.577 L110.644,117.576 Z M114.754,117.576 C114.754,115.760088 116.226088,114.288 118.042,114.288 C119.857912,114.288 121.33,115.760088 121.33,117.576 C121.33,119.391912 119.857912,120.864 118.042,120.864 C116.228042,120.857963 114.759037,119.388958 114.753,117.575 L114.754,117.576 Z M116.398,117.576 C116.398,118.483956 117.134044,119.22 118.042,119.22 C118.949956,119.22 119.686,118.483956 119.686,117.576 C119.686,116.668044 118.949956,115.932 118.042,115.932 C117.136353,115.935839 116.403287,116.669351 116.4,117.575 L116.398,117.576 Z" id="eye-l" fill="#FFFFFF" fill-rule="nonzero"></path>
+                            </g>
+                            <g transform="translate(296.000000, 0.000000)">
+                                <g id="box" fill="#ECEEF0">
+                                    <rect id="Rectangle-13" x="0" y="0" width="136" height="136"></rect>
+                                </g>
+                                <rect id="Rectangle" fill="url(#linearGradient-3)" x="0" y="36" width="136" height="100"></rect>
+                                <g id="box" opacity="0" transform="translate(100.000000, 100.000000)" fill="#ECEEF0">
+                                    <rect id="Rectangle-13" x="0" y="0" width="36" height="36"></rect>
+                                </g>
+                                <path d="M109.082,118.151 L109,117.9 L109,117.489 L109.082,117 C110.710422,113.481219 114.167245,111.166124 118.041,111 C121.914755,111.166124 125.371578,113.481219 127,117 L127,117.74 C127,117.822 127,117.904 126.918,117.904 C126.918,117.986 126.918,117.986 126.836,118.068 C126.611444,118.561989 126.335952,119.031196 126.014,119.468 C124.758586,121.377538 122.910451,122.821614 120.754,123.578 C119.910692,123.98876 118.979438,124.186206 118.042,124.153 C114.168245,123.986876 110.711422,121.671781 109.083,118.153 L109.082,118.151 Z M110.644,117.576 C111.974637,120.491269 114.841172,122.401776 118.044,122.508 C118.828049,122.498383 119.605144,122.35952 120.344,122.097 C122.128749,121.486339 123.66067,120.301175 124.7,118.727 L124.7,118.645 C124.948772,118.307999 125.168875,117.95075 125.358,117.577 C124.000495,114.684741 121.14993,112.784878 117.958,112.645 C114.795736,112.811288 111.982879,114.707804 110.643,117.577 L110.644,117.576 Z M114.754,117.576 C114.754,115.760088 116.226088,114.288 118.042,114.288 C119.857912,114.288 121.33,115.760088 121.33,117.576 C121.33,119.391912 119.857912,120.864 118.042,120.864 C116.228042,120.857963 114.759037,119.388958 114.753,117.575 L114.754,117.576 Z M116.398,117.576 C116.398,118.483956 117.134044,119.22 118.042,119.22 C118.949956,119.22 119.686,118.483956 119.686,117.576 C119.686,116.668044 118.949956,115.932 118.042,115.932 C117.136353,115.935839 116.403287,116.669351 116.4,117.575 L116.398,117.576 Z" id="eye-l" fill="#FFFFFF" fill-rule="nonzero"></path>
+                            </g>
+                            <g transform="translate(444.000000, 0.000000)">
+                                <g id="box" fill="#ECEEF0">
+                                    <rect id="Rectangle-13" x="0" y="0" width="136" height="136"></rect>
+                                </g>
+                                <rect id="Rectangle" fill="url(#linearGradient-3)" x="0" y="36" width="136" height="100"></rect>
+                            </g>
+                            <g transform="translate(0.000000, 148.000000)">
+                                <g id="box" fill="#ECEEF0">
+                                    <rect id="Rectangle-13" x="0" y="0" width="136" height="136"></rect>
+                                </g>
+                                <rect id="Rectangle" fill="url(#linearGradient-3)" x="0" y="36" width="136" height="100"></rect>
+                            </g>
+                            <g transform="translate(148.000000, 148.000000)">
+                                <g id="box" fill="#ECEEF0">
+                                    <rect id="Rectangle-13" x="0" y="0" width="136" height="136"></rect>
+                                </g>
+                                <rect id="Rectangle" fill="url(#linearGradient-3)" x="0" y="36" width="136" height="100"></rect>
+                            </g>
+                            <g transform="translate(296.000000, 148.000000)">
+                                <g id="box" fill="#ECEEF0">
+                                    <rect id="Rectangle-13" x="0" y="0" width="136" height="136"></rect>
+                                </g>
+                                <rect id="Rectangle" fill="url(#linearGradient-3)" x="0" y="36" width="136" height="100"></rect>
+                            </g>
+                            <g transform="translate(444.000000, 148.000000)">
+                                <g id="box" fill="#ECEEF0">
+                                    <rect id="Rectangle-13" x="0" y="0" width="136" height="136"></rect>
+                                </g>
+                                <rect id="Rectangle" fill="url(#linearGradient-3)" x="0" y="36" width="136" height="100"></rect>
+                            </g>
+                        </g>
+                    </g>
+                    <g id="top" mask="url(#mask-2)">
+                        <g id="Rectangle_12068-2" fill-rule="nonzero">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                            <use fill="#FFFFFF" xlink:href="#path-4"></use>
+                        </g>
+                        <polygon id="Rectangle_12037" fill="#FFFFFF" fill-rule="nonzero" opacity="0" points="204 0 688 0 688 60 204 60"></polygon>
+                        <text id="最新" font-family="PingFangSC-Regular, PingFang SC" font-size="14" font-weight="500" fill="#333333">
+                            <tspan x="204" y="35">最新</tspan>
+                        </text>
+                        <text id="上传" font-family="PingFangSC-Regular, PingFang SC" font-size="14" font-weight="normal" fill="#1593FF">
+                            <tspan x="272" y="35">上传</tspan>
+                        </text>
+                        <text id="已购" font-family="PingFangSC-Regular, PingFang SC" font-size="14" font-weight="normal" fill="#333333">
+                            <tspan x="340" y="35">收藏</tspan>
+                        </text>
+                        <rect id="Rectangle_12038" fill="#1593FF" fill-rule="nonzero" x="272" y="58" width="28" height="2"></rect>
+                    </g>
+                    <g id="left" mask="url(#mask-2)">
+                        <rect id="Rectangle_12019" fill="#212121" fill-rule="nonzero" x="0" y="0" width="176" height="320"></rect>
+                        <g id="Group_16226-2" transform="translate(0.000000, 108.000000)">
+                            <rect id="Rectangle_12020-2" fill="#222528" fill-rule="nonzero" opacity="0" x="0" y="0" width="176" height="48"></rect>
+                            <text id="图片库" font-family="PingFangSC-Regular, PingFang SC" font-size="14" font-weight="normal" fill="#FFFFFF">
+                                <tspan x="28" y="29">图片库</tspan>
+                            </text>
+                        </g>
+                        <g id="Group_19349" transform="translate(0.000000, 60.000000)">
+                            <rect id="Rectangle_12020-5" fill="#1593FF" fill-rule="nonzero" x="0" y="0" width="176" height="48"></rect>
+                            <text id="我的图片" font-family="PingFangSC-Semibold, PingFang SC" font-size="14" font-weight="500" fill="#FFFFFF">
+                                <tspan x="28" y="29">我的图片</tspan>
+                            </text>
+                        </g>
+                        <g id="Group_19413">
+                            <rect id="Rectangle_12497" fill="#212121" fill-rule="nonzero" x="0" y="0" width="176" height="60"></rect>
+                            <g id="Group_19356" transform="translate(82.000000, 18.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                <rect id="Rectangle-path" opacity="0" x="0" y="0" width="24" height="24"></rect>
+                                <path d="M12.7,12.7 L11.3,12.7 L11.3,8.5 L12.7,8.5 L12.7,12.7 Z M12.7,15.5 L11.3,15.5 L11.3,14.1 L12.7,14.1 L12.7,15.5 Z M12,5 C8.13400675,5 5,8.13400675 5,12 C5,15.8659932 8.13400675,19 12,19 C15.8659932,19 19,15.8659932 19,12 C19,8.13400675 15.8659932,5 12,5 Z" id="alert-circle"></path>
+                            </g>
+                            <text id="图片库" font-family="PingFangSC-Semibold, PingFang SC" font-size="18" font-weight="500" fill="#FFFFFF">
+                                <tspan x="28" y="37">图片库</tspan>
+                            </text>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

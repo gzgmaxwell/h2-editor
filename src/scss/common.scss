@@ -1,0 +1,31 @@
+.transition {
+    transition: all 0.3s;
+}
+
+// 文本过长显示省略号
+.ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+// 清除浮动
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: '.';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}

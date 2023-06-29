@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 72 72" style="enable-background:new 0 0 72 72;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#A3AFB7;}
+	.st1{fill:#4F5D69;}
+	.st2{fill:#F7F8F9;}
+	.st3{fill:url(#Rectangle-10_5_);}
+</style>
+<path id="Rectangle-10" class="st0" d="M10.5,22h51c1.4,0,2.5,1.1,2.5,2.5v31c0,1.4-1.1,2.5-2.5,2.5h-51C9.1,58,8,56.9,8,55.5v-31
+	C8,23.1,9.1,22,10.5,22z"/>
+<path id="Rectangle-10_1_" d="M10.5,22.5h51c1.1,0,2,0.9,2,2v31c0,1.1-0.9,2-2,2h-51c-1.1,0-2-0.9-2-2v-31
+	C8.5,23.4,9.4,22.5,10.5,22.5z"/>
+<rect id="Rectangle-12" x="11.5" y="57" class="st1" width="49" height="3"/>
+<path id="Rectangle-10_2_" class="st0" d="M4,58h64v1.5c0,0.3-0.2,0.5-0.5,0.5h-63C4.2,60,4,59.8,4,59.5V58z"/>
+<path id="Rectangle-10_3_" class="st2" d="M29,58h14v0.8c0,0.1-0.1,0.2-0.3,0.2H29.3c-0.1,0-0.3-0.1-0.3-0.2V58z"/>
+<linearGradient id="Rectangle-10_5_" gradientUnits="userSpaceOnUse" x1="-1074.9902" y1="2781.0332" x2="-1074.9902" y2="2780.0332" gradientTransform="matrix(51 0 0 -31 54860.5 86236.5312)">
+	<stop  offset="0" style="stop-color:#5B626C"/>
+	<stop  offset="1" style="stop-color:#2E333A"/>
+</linearGradient>
+<rect id="Rectangle-10_4_" x="10.5" y="24.5" class="st3" width="51" height="31"/>
+</svg>

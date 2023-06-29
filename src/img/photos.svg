@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="68px" height="68px" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>编组 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="288" height="620"></rect>
+    </defs>
+    <g id="编辑器" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="工具箱拼图" transform="translate(-84.000000, -428.000000)">
+            <g id="模板库" transform="translate(68.000000, 0.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Rectangle-3" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <g id="矩形-2" mask="url(#mask-2)" fill="#E6EBED">
+                    <g transform="translate(16.000000, 428.000000)" id="矩形">
+                        <rect x="0" y="0" width="68" height="68" rx="2"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="编组-4" transform="translate(84.000000, 428.000000)">
+                <rect id="矩形" fill="#1593ff" x="0" y="0" width="68" height="68"></rect>
+                <rect id="矩形" fill="#FFFFFF" x="15" y="15" width="10" height="10"></rect>
+                <rect id="矩形" fill="#FFFFFF" x="29" y="15" width="10" height="10"></rect>
+                <rect id="矩形" fill="#FFFFFF" x="43" y="11" width="14" height="14"></rect>
+                <rect id="矩形" fill="#FFFFFF" x="15" y="29" width="10" height="10"></rect>
+                <rect id="矩形" fill="#FFFFFF" x="29" y="29" width="10" height="10"></rect>
+                <rect id="矩形" fill="#FFFFFF" x="43" y="29" width="10" height="10"></rect>
+                <rect id="矩形" fill="#FFFFFF" x="15" y="43" width="10" height="10"></rect>
+                <rect id="矩形" fill="#FFFFFF" x="29" y="43" width="10" height="10"></rect>
+                <rect id="矩形" fill="#FFFFFF" x="43" y="43" width="10" height="10"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

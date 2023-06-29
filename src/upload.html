@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>易企秀|上传图片</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html,
+        body {
+            height: 100%;
+            background: #ECEEF0;
+        }
+
+        .wrap {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* background-image: linear-gradient(0deg, #1593FF 0%, #5D61FF 100%); */
+        }
+
+        .upload-btn {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 144px;
+            height: 48px;
+            color: #2F3C4D;
+            background: #fff;
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.16);
+            border-radius: 60px;
+            overflow: hidden;
+        }
+
+        .tip {
+            position: relative;
+        }
+
+        .progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 100%;
+            transition: all 0.3s;
+        }
+
+        .upload {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+
+        .desc {
+            font-size: 12px;
+            color: #999;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap" id="upload_container">
+        <div class="upload-btn" id="upload_btn">
+            <div class="progress" id="progress"></div>
+            <span class="tip" id="tip">选择图片</span>
+            <input class="upload" id="upload" type="file" disabled multiple accept="image/*">
+        </div>
+        <span class="desc" id="notice">一次最多上传10张，每张图片大小不超过10M</span>
+    </div>
+    <script>
+        var host = {
+            p1: '<%= htmlWebpackPlugin.options.host.p1 %>'
+        }
+        var params = getUrlParams()
+        var $notice = document.getElementById('notice')
+        if ($notice) {
+            var num = params.num ? params.num : 10
+            var maxSize = params.fl ? params.fl : 10
+            $notice.innerHTML = '一次最多上传' + num + '张，每张图片大小不超过' + maxSize + 'M'
+        }
+        var token = ''
+        var tip = {
+            ready: '选择图片',
+            uploading: '上传中…'
+        }
+
+        getToken()
+            .then(function (t) {
+                token = t
+                setInputDisabled(false)
+                bindChangeEvent(document.querySelector('#upload'))
+            })
+            .catch(function (err) {
+                console.error(err)
+                alert('参数异常')
+            })
+
+        /**
+         * 获取上传时需要的token
+         */
+        function getToken() {
+            return ajax({
+                method: 'GET',
+                url: host.p1 + '/mobile/file/upload/uptoken'
+            })
+                .then(function (res) {
+                    return Promise.resolve(res.obj)
+                })
+        }
+
+        /**
+         * 替换input，以达到清空file的目的
+         */
+        function replaceInput() {
+            var input = document.createElement('input')
+            input.setAttribute('class', 'upload')
+            input.setAttribute('id', 'upload')
+            input.setAttribute('type', 'file')
+            input.setAttribute('multiple', '')
+            input.setAttribute('accept', 'image/*')
+            var btn = document.querySelector('#upload_btn')
+            var oldInput = document.querySelector('#upload')
+            btn.removeChild(oldInput)
+            btn.appendChild(input)
+            bindChangeEvent(input)
+        }
+
+        /**
+         * 上传成功或失败后重置上传按钮
+         */
+        function resetUpload() {
+            setTipText(tip.ready)
+            setProgressCss({
+                background: 'transparent' // 如果使用opacity，在手机上会有一瞬间圆角失效的问题
+            })
+            setTimeout(function () {
+                setProgressCss({
+                    width: 0
+                })
+            }, 300) // 需要在动画执行之后
+            replaceInput()
+        }
+
+        /**
+         * 监听input选择文件
+         */
+        function bindChangeEvent(input) {
+            input.onchange = function () {
+                uploadQiniu(token, this.files, input)
+            }
+        }
+
+        /**
+         * 让七牛支持多文件上传
+         */
+        function uploadQiniu(token, filesObj, $input) {
+            // 将files对象转换成数组
+            var files = []
+            for (var key in filesObj) {
+                if (Object.prototype.hasOwnProperty.call(filesObj, key)) {
+                    files[key] = filesObj[key]
+                }
+            }
+
+            var options = {
+                token: token,
+                maxFileSize: params.fl || 10,
+                maxCount: params.num || 10,
+                onFilesAdded: function () {
+                    var fileNameTips = false
+                    var fileSizeTips = false
+
+                    files.forEach(function (file) {
+                        if (file.name.length >= 50) {
+                            fileNameTips = true
+                        }
+                        if (file.size / 1024 / 1024 > options.maxFileSize) {
+                            fileSizeTips = true
+                        }
+                    })
+                    if (fileNameTips) {
+                        alert('文件名称限制在50个字符内')
+                        $input.value = null
+                        return false
+                    }
+                    if (fileSizeTips) {
+                        alert('单张图片必须小于' + options.maxFileSize + 'M内')
+                        $input.value = null
+                        return false
+                    }
+
+                    if (options.maxCount && files.length > options.maxCount) {
+                        alert('文件个数限制在 ' + options.maxCount + '个内')
+                        $input.value = null
+                        return false
+                    }
+
+                    return true
+                },
+                onUploadProgress: function (percent) {
+                    setTipText(tip.uploading)
+                    setInputDisabled(true)
+                    setProgressCss({
+                        background: '#1593ff',
+                        width: percent + '%'
+                    })
+                },
+                onFileUploaded: function (res, isEnd) {
+                    saveFile(res, isEnd)
+                },
+                onUploadComplete: function () {
+                    resetUpload()
+                    alert('上传成功')
+                },
+                onError: function (err) {
+                    resetUpload()
+                    console.error(err)
+                    alert('上传失败，请刷新后重试')
+                }
+            }
+
+            // 如果不符合上传规则则返回
+            if (!options.onFilesAdded()) {
+                return
+            }
+
+            // 多文件串行上传
+            var result = Promise.resolve()
+            files.forEach(function (file, i) {
+                result = result.then(function () {
+                    return uploadWithSDK(options, files, i)
+                })
+            })
+            result
+                .then(function () {
+                    if (files.length) {
+                        options.onUploadComplete()
+                    }
+                })
+                .catch(function (err) {
+                    options.onError(err)
+                })
+        }
+
+        /**
+         * 使用七牛2.x版sdn上传
+         */
+        function uploadWithSDK(options, files, i) {
+            return new Promise(function (resolve, reject, notify) {
+                var config = {
+                    useCdnDomain: true,
+                    disableStatisticsReport: false,
+                    retryCount: 6
+                    // region: window.qiniu.region.z2
+                }
+                var putExtra = {
+                    fname: '',
+                    params: {},
+                    mimeType: ['image/png', 'image/jpeg']
+                }
+                var observer = {
+                    next: function (res) {
+                        // 计算单个在总数中的进度
+                        var percent = (i / files.length * 100) + (1 / files.length * res.total.percent)
+                        options.onUploadProgress(percent)
+                    },
+                    error: function (err) {
+                        reject(err)
+                    },
+                    complete: function (res) {
+                        var isEnd = files.length === i + 1
+                        options.onFileUploaded(res, isEnd)
+                        resolve(res)
+                    }
+                }
+                var observable = window.qiniu.upload(files[i], guid(), options.token, putExtra, config)
+                observable.subscribe(observer)
+            })
+        }
+
+        /**
+         * 保存到我的图片
+         */
+        function saveFile(info, isEnd) {
+            var data = {
+                path: info.key,
+                tmbPath: info.key,
+                name: info.name,
+                size: parseInt(info.size / 1024),
+                fileType: 1,
+                tagId: -1,
+                code: params.code,
+                isEnd: isEnd,
+                platform: params.p,
+                storageType: 0, // 用户上传 1 作品上素材  2 二次编辑转存素材
+                source: 'P010005',
+                uploadType: 2, // 0 PC本地上传 1 app上传 2 手机扫码上传 3 小程序本地上传
+                did: params.uuid
+            }
+            ajax({
+                method: 'POST',
+                url: host.p1 + '/mobile/file/upload/save',
+                data: data,
+                header: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+        }
+
+        /**
+         * 简单的ajax方法
+         */
+        function ajax(option) {
+            var defaultOption = {
+                method: '',
+                url: '',
+                data: null,
+                params: {},
+                header: {}
+            }
+            option = Object.assign({}, defaultOption, option)
+            return new Promise(function (resolve, reject) {
+                var xhr = new XMLHttpRequest()
+                xhr.responseType = 'json'
+                xhr.open(option.method, option.url)
+                for (var key in option.header) {
+                    xhr.setRequestHeader(key, option.header[key])
+                }
+                xhr.send(Json2Params(option.data))
+                xhr.onload = function () {
+                    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+                        resolve(xhr.response)
+                    }
+                }
+                xhr.onerror = function (err) {
+                    reject(err)
+                }
+            })
+        }
+
+        /**
+         * 生成guid
+         */
+        function guid() {
+            function S4() {
+                return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
+            }
+            // return (S4() + S4() + '-' + S4() + '-' + S4() + '-' + S4() + '-' + S4() + S4() + S4())
+            return S4() + S4() + S4() + S4() + S4() + S4() + S4() + S4()
+        }
+
+        /**
+         * 将查询参数转换成对象
+         */
+        function getUrlParams() {
+            var obj = {}
+            var params = location.href.split('?')[1] || ''
+            params.split('&').forEach(function (item) {
+                var val = item.split('=')
+                obj[val[0]] = val[1]
+            })
+            return obj
+        }
+
+        /**
+         * 将json转换成表单提交需要的格式，比如a=1&b=2&c=3
+         */
+        function Json2Params(obj) {
+            if (Object.prototype.toString.call(obj).toLowerCase() !== '[object object]') {
+                return ''
+            }
+            var arr = []
+            for (var key in obj) {
+                arr.push(key + '=' + obj[key])
+            }
+            return arr.join('&')
+        }
+
+        /**
+         * 设置按钮的内容
+         */
+        function setTipText(tip) {
+            document.querySelector('#tip').innerHTML = tip
+        }
+
+        /**
+         * 设置进度条的样式
+         */
+        function setProgressCss(css) {
+            Object.assign(document.querySelector('#progress').style, css)
+        }
+
+        /**
+         * 设置上传按钮的样式
+         */
+        function setInputDisabled(status) {
+            var input = document.querySelector('input')
+            status
+                ? input.setAttribute('disabled', 'disabled')
+                : input.removeAttribute('disabled')
+        }
+    </script>
+    <script>
+        var _tracker_ = window._tracker_ || []
+        // 设置客户端类型（取值见附表）
+        _tracker_.push(['client_type', 'PC'])
+        _tracker_.push(['product', 'print'])
+        _tracker_.push(['b_v', '1.0'])
+        _tracker_.push(['b_t', 'upload'])
+        // 百度统计使用
+        var _hmt = window._hmt || []
+        // 没什么用，只是为了esLint不报错
+        _hmt.slice()
+        if (window.location.host.indexOf('local') === -1) { // 本地开发不上报数据
+            // 易观方舟SDK
+            (function (config) {
+                window.AnalysysAgent = window.AnalysysAgent || []
+                window.AnalysysAgent.methods = 'identify alias reset track profileSet profileSetOnce profileIncrement profileAppend profileUnset profileDelete registerSuperProperty registerSuperProperties unRegisterSuperProperty clearSuperProperties getSuperProperty getSuperProperties pageView debugMode auto appkey name uploadURL hash visitorConfigURL autoProfile autoWebstay encryptType pageProperty autoHeatmap freeApi'.split(' ')
+
+                function factory(b) {
+                    return function () {
+                        var a = Array.prototype.slice.call(arguments)
+                        a.unshift(b)
+                        window.AnalysysAgent.push(a)
+                        return window.AnalysysAgent
+                    }
+                }
+                for (var i = 0; i < window.AnalysysAgent.methods.length; i++) {
+                    const key = window.AnalysysAgent.methods[i]
+                    window.AnalysysAgent[key] = factory(key)
+                }
+                for (var item in config) {
+                    if (typeof window.AnalysysAgent[item] === 'function') {
+                        window.AnalysysAgent[item](config[item])
+                    }
+                }
+            })({
+                appkey: window.location.host.indexOf('yqxiu.cn') > -1 ? 'd2fd739500271934' : 'f1cc0ae3e0d07822', // APPKEY
+                uploadURL: window.location.protocol + '//ark-push1.eqxiu.com', // 上传数据的地址
+                debugMode: window.location.host.indexOf('yqxiu.cn') > -1 ? 1 : 0, // 测试环境开启调试模式
+                sendType: 'post', // 使用Ajax中的post请求上传日志
+                visitorConfigURL: '//ark-push1.eqxiu.com/',
+                autoWebstay: true
+            })
+            if (typeof window.AnalysysAgent.registerSuperProperty === 'function') {
+                window.AnalysysAgent.registerSuperProperty('product', '轻设计编辑器')
+            }
+        }
+    </script>
+    <% for (lib of htmlWebpackPlugin.options.libs) { %>
+    <% if (lib.isAsync) { %>
+    <script src="<%= lib.url %>" async></script>
+    <% } else { %>
+    <script src="<%= lib.url %>"></script>
+    <% } %>
+    <% } %>
+    <script src="//hm.baidu.com/hm.js?4e703190a90948a2a6fd5ef0f8d4d2c3" async></script>
+    <script type="text/javascript" id="ARK_SDK" src="//lib.eqh5.com/ygfz/4.3.1/AnalysysAgent_JS_SDK.min.js"></script>
+    <script>
+        window._hmt.push(['_trackEvent', '功能使用', '上传功能', '手机上传'])
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+{
+    "h2": {
+        "dev": {
+            "buildScript": "yarn && yarn dev && yarn test && yarn pre && yarn pro",
+            "output": [
+                {
+                    "zipPath": "zip/h2.zip",
+                    "serverPath": "h2/"
+                }
+            ]
+        }
+    }
+}

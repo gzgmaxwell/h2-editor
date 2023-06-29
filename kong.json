@@ -1,0 +1,43 @@
+{
+    "api": {
+        "name": "front-h2",
+        "upstream_url": "http://ups.front-h2",
+        "hosts": [
+            "www.eqshow.cn"
+        ],
+        "methods": [
+            "GET",
+            "POST",
+            "HEAD",
+            "OPTIONS"
+        ],
+        "uris": [
+            "/home"
+        ],
+        "preserve_host": true,
+        "strip_uri": true,
+        "http_if_terminated": false,
+        "https_only": false,
+        "retries": 5,
+        "upstream_connect_timeout": 6000,
+        "upstream_read_timeout": 6000,
+        "upstream_send_timeout": 6000
+    },
+    "plugins": [
+        {
+            "config": {
+                "name": "try_files",
+                "enabled": true,
+                "rules": [
+                    "$uri $uri/ /index.html =404"
+                ],
+                "methods": [
+                    "GET",
+                    "POST",
+                    "HEAD",
+                    "OPTIONS"
+                ]
+            }
+        }
+    ]
+}

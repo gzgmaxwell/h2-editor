@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-copyright);
+      }
+
+      .cls-2 {
+        fill: #ffffff;
+        fill-rule: evenodd;
+      }
+    </style>
+    <clipPath id="clip-copyright">
+      <rect width="16" height="16"/>
+    </clipPath>
+  </defs>
+  <g id="copyright" class="cls-1">
+    <path id="Combined-Shape" class="cls-2" d="M8,15a7,7,0,1,1,7-7A7,7,0,0,1,8,15Zm0-1.5A5.5,5.5,0,1,0,2.5,8,5.5,5.5,0,0,0,8,13.5Zm2.828-8.328L9.768,6.232a2.5,2.5,0,1,0,0,3.536l1.061,1.061a4,4,0,1,1,0-5.657Z"/>
+  </g>
+</svg>

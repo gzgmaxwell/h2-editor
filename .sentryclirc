@@ -1,0 +1,7 @@
+[auth]
+token=004342ac1b74489aab9ab5c76542dab0a08aae3b755a4564bf629fbf0c21e2a2
+
+[defaults]
+url=http://sentry.eff.eqxiu.com
+org=eqxiu
+project=eqxiu-h2-editor

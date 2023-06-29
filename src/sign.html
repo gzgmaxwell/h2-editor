@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>易企秀|轻设计</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+</head>
+
+<body>
+    <script>
+        var host = {
+            client: '<%= htmlWebpackPlugin.options.host.client %>',
+            passport: '<%= htmlWebpackPlugin.options.host.passport %>',
+            server_1: '<%= htmlWebpackPlugin.options.host.server_1 %>',
+            wxAppId: '<%= htmlWebpackPlugin.options.wxAppId %>'
+        }
+
+        var WX_APP_ID = host.wxAppId
+        var serverUrl = 'https:' + host.passport + '/eqs/rel-account/wechat-mp?appId=' + WX_APP_ID
+        var url = 'https:' + host.server_1 + '/get-weixin-code.html?server_uri=' + serverUrl
+        var redirectUrl = 'https:' + host.client + '/h2/sign'
+        setTimeout(() => {
+            window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize' + '?appid=' + WX_APP_ID +
+                '&redirect_uri=' + encodeURIComponent(url) +
+                '&response_type=code&scope=snsapi_userinfo' +
+                '&state=' + encodeURIComponent(redirectUrl) + '#wechat_redirect'
+        }, 300)
+    </script>
+</body>
+
+</html>

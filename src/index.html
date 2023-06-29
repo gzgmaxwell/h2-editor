@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>易企秀|轻设计</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="//lib.eqh5.com/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="//lib.eqh5.com/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="//lib.eqh5.com/hint.css/2.3.2/hint.min.css">
+    <link rel="stylesheet" href="//lib.eqh5.com/iconfonts/4.0.8/iconfonts.min.css">
+    <link rel="stylesheet" href="//lib.eqh5.com/cropperjs/1.3.5/cropper.min.css">
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        var _tracker_ = window._tracker_ || []
+        // 设置客户端类型（取值见附表）
+        _tracker_.push(['client_type', 'PC'])
+        _tracker_.push(['product', 'print'])
+        _tracker_.push(['b_v', '1.0'])
+        _tracker_.push(['b_t', 'editor'])
+        // 百度统计使用
+        var _hmt = window._hmt || []
+        // 没什么用，只是为了esLint不报错
+        _hmt.slice()
+        if (window.location.host.indexOf('local') === -1) { // 本地开发不上报数据
+            // 易观方舟SDK
+            (function (config) {
+                window.AnalysysAgent = window.AnalysysAgent || []
+                window.AnalysysAgent.methods = 'identify alias reset track profileSet profileSetOnce profileIncrement profileAppend profileUnset profileDelete registerSuperProperty registerSuperProperties unRegisterSuperProperty clearSuperProperties getSuperProperty getSuperProperties pageView debugMode auto appkey name uploadURL hash visitorConfigURL autoProfile autoWebstay encryptType pageProperty autoHeatmap freeApi'.split(' ')
+
+                function factory(b) {
+                    return function () {
+                        var a = Array.prototype.slice.call(arguments)
+                        a.unshift(b)
+                        window.AnalysysAgent.push(a)
+                        return window.AnalysysAgent
+                    }
+                }
+                for (var i = 0; i < window.AnalysysAgent.methods.length; i++) {
+                    const key = window.AnalysysAgent.methods[i]
+                    window.AnalysysAgent[key] = factory(key)
+                }
+                for (var item in config) {
+                    if (typeof window.AnalysysAgent[item] === 'function') {
+                        window.AnalysysAgent[item](config[item])
+                    }
+                }
+            })({
+                appkey: window.location.host.indexOf('yqxiu.cn') > -1 ? 'd2fd739500271934' : 'f1cc0ae3e0d07822', // APPKEY
+                uploadURL: window.location.protocol + '//ark-push1.eqxiu.com', // 上传数据的地址
+                debugMode: window.location.host.indexOf('yqxiu.cn') > -1 ? 1 : 0, // 测试环境开启调试模式
+                sendType: 'post', // 使用Ajax中的post请求上传日志
+                visitorConfigURL: '//ark-push1.eqxiu.com/',
+                autoWebstay: true
+            })
+            if (typeof window.AnalysysAgent.registerSuperProperty === 'function') {
+                window.AnalysysAgent.registerSuperProperty('product', '轻设计编辑器')
+            }
+        }
+    </script>
+    <% for (lib of htmlWebpackPlugin.options.libs) { %>
+    <% if (lib.isAsync) { %>
+    <script src="<%= lib.url %>" async></script>
+    <% } else { %>
+    <script src="<%= lib.url %>"></script>
+    <% } %>
+    <% } %>
+    <script src="//hm.baidu.com/hm.js?4e703190a90948a2a6fd5ef0f8d4d2c3" async></script>
+    <script src="//api.map.baidu.com/api?v=2.0&ak=lIjdqC5TWQ1TcTL7fF7L5ltf591OBFFx"></script>
+    <script type="text/javascript" id="ARK_SDK" src="//lib.eqh5.com/ygfz/4.3.1/AnalysysAgent_JS_SDK.min.js"></script>
+</body>
+
+</html>
